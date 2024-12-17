@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import org.springframework.stereotype.Component;
+import com.google.common.reflect.ClassPath;
 
 @Component
 class Car{}
@@ -34,7 +35,7 @@ class AppContext{
             ClassLoader classLoader = AppContext.class.getClassLoader();
             ClassPath classPath = ClassPath.from(classLoader);
 
-            Set<ClassPath.ClassInfo> set = classPath.getTopLevleClasses("com.fastcampus.ch3.diCopy3");
+            Set<ClassPath.ClassInfo> set = classPath.getTopLevelClasses("com.fastcampus.ch3.diCopy3");
 
             for(ClassPath.ClassInfo classInfo : set){
                 Class clazz = classInfo.load();
