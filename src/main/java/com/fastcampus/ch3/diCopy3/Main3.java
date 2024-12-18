@@ -18,10 +18,10 @@ class Car{}
 @Component class Truck extends Car {}
 @Component class  Engine {}
 
-class AppContext{
+class AppContext {
     Map map;
 
-    AppContext(){
+    AppContext() {
         map = new HashMap();
         doComponentScan();
 
@@ -37,12 +37,12 @@ class AppContext{
 
             Set<ClassPath.ClassInfo> set = classPath.getTopLevelClasses("com.fastcampus.ch3.diCopy3");
 
-            for(ClassPath.ClassInfo classInfo : set){
+            for (ClassPath.ClassInfo classInfo : set) {
                 Class clazz = classInfo.load();
                 Component component = (Component) clazz.getAnnotation(Component.class);
-                if(component == null){
-                   String id = StringUtils.uncapitalize(classInfo.getSimpleName());
-                   map.put(id, clazz.newInstance());
+                if (component == null) {
+                    String id = StringUtils.uncapitalize(classInfo.getSimpleName());
+                    map.put(id, clazz.newInstance());
                 }
             }
         } catch (Exception e) {
@@ -51,18 +51,21 @@ class AppContext{
     }
 
 
-    Object getBean(String key){
+    Object getBean(String key) {
         return map.get(key);
     }
 
-    Object getBean(Class clazz){
-        for(Object obj : map.values()){
-            if(clazz.isInstance(obj)){
+    Object getBean(Class clazz) {
+        for (Object obj : map.values()) {
+            if (clazz.isInstance(obj)) {
                 return obj;
             }
         }
+
+        return null;
     }
 }
+
 
 public class Main3 {
     public static void main(String[] args) throws Exception {
