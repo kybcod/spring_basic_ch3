@@ -8,6 +8,8 @@ import java.util.Arrays;
 class Car{
     String color;
     int oil;
+    Engine engine;
+    Door[] doors;
 
     public void setColor(String color) {
         this.color = color;
@@ -25,8 +27,6 @@ class Car{
         this.doors = doors;
     }
 
-    Engine engine;
-    Door[] doors;
 
     @Override
     public String toString() {
