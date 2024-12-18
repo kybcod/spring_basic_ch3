@@ -54,22 +54,23 @@ class AppContext{
     Object getBean(String key){
         return map.get(key);
     }
+
+    Object getBean(Class clazz){
+        for(Object obj : map.values()){
+            if(clazz.isInstance(obj)){
+                return obj;
+            }
+        }
+    }
 }
 
 public class Main3 {
     public static void main(String[] args) throws Exception {
-        AppContext context = new AppContext();
-        Car car = (Car) getBean("car");
-        Engine engine = (Engine) getBean("engine");
+        AppContext ac = new AppContext();
+        Car car = (Car) ac.getBean("car"); //byName으로 검색
+        Car car2 = (Car) ac.getBean(Car.class); //byType으로 검색
+        Engine engine = (Engine) ac.getBean("engine");
         System.out.println("car = " + car);
         System.out.println("engine = " + engine);
-    }
-
-    static Object getBean(String key) throws Exception {
-        Properties prop = new Properties();
-        prop.load(new FileReader("config.txt"));
-
-        Class clazz = Class.forName(prop.getProperty(key));
-        return clazz.newInstance();
     }
 }
