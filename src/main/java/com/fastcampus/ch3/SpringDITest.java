@@ -51,11 +51,12 @@ public class SpringDITest {
         Engine engine = (Engine)context.getBean("engine");
         Door door = (Door)context.getBean("door");
 
-        car.setColor("red");
+        // xml 파일에 값이 존재하기 때문에 생략 가능
+        /*car.setColor("red");
         car.setOil(100);
         car.setEngine(engine);
         car.setDoors(new Door[]{context.getBean("door", Door.class), (Door) context.getBean("door")});
-
+*/
         System.out.println("car = " + car);
         System.out.println("engine = " + engine);
         System.out.println("door = " + door);
