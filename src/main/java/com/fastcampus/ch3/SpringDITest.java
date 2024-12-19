@@ -22,8 +22,7 @@ class Car{
     // == @Resource(name = "superEngine") => byName
     @Resource(name = "superEngine") //
     Engine engine; // byType - 타입으로 먼저 검색, 여러개면 이름으로 검색 - engine, superEngine, turboEngine
-    @Autowired
-    Door[] doors;
+    @Autowired Door[] doors;
 
     public Car() {} //기본 생성자 꼭 만들기
 
