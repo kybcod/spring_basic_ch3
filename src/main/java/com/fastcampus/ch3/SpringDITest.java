@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.Arrays;
 
-@Component("engine") class Engine{} // <bean id="engine" class"com.fastcampus.ch3.Engine"/>
+@Component("engine") class Engine{} // <bean id="engine" class"com.fastcampus.ch3.Engine"/> : xml 파일에 bean 태그로 선언
 @Component class SuperEngine extends Engine {}
 @Component class TurboEngine extends Engine {}
 @Component  class Door{}
