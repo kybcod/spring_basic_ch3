@@ -24,7 +24,9 @@ class Car{
     Engine engine; // byType - 타입으로 먼저 검색, 여러개면 이름으로 검색 - engine, superEngine, turboEngine
     @Autowired Door[] doors;
 
-    public Car() {} //기본 생성자 꼭 만들기
+    public Car() {} // 기본 생성자를 명시적으로 작성해야 함.
+    // 모든 매개변수가 포함된 생성자를 작성하면, Java는 기본 생성자를 자동으로 생성하지 않기 때문.
+
 
     public Car(String color, int oil, Engine engine, Door[] doors) {
         this.color = color;
