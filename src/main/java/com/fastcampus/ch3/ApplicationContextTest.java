@@ -28,10 +28,11 @@ class Car {
     Door[] doors;
 
     // 기본 생성자 생성 시 Autowired 생략하면 안됨(null 값 가짐)
-    public Car(){}
+    // public Car(){}
 
     // 생성자
     // @Autowired //생략가능
+    // 기본 생성자 없을 때는 기본 타입(String, int)는 Spring에서 관리되는 Bean이 아니기 때문에, 직접 값을 설정하거나 외부 환경(application.yml 등)에서 주입
     public Car(@Value("red") String color, @Value("100") int oil, Engine engine, Door[] doors) {
         this.color = color;
         this.oil = oil;
