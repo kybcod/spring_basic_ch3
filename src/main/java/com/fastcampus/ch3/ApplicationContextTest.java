@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.*;
 import org.springframework.stereotype.*;
 
-import javax.inject.*;
-import java.util.*;
+import java.util.Map;
+import java.util.Properties;
 
 @Component
 @Scope("prototype")
@@ -41,6 +41,32 @@ class Car {
     }
 }
 
+@Component
+@PropertySource("../../../../resources/setting.properties")
+class SysInfo{
+    @Value("#{systemProperties['user.timezone']}")
+    String timeZone;
+    @Value("#{systemEnvironment['APPDATA']}")
+    String currDir;
+    @Value("${autosaveDir")
+    String autosaveDir;
+    @Value("${autosaveInterval}")
+    int autosaveInterval;
+    @Value("${autosaveDir}")
+    boolean autosave;
+
+    @Override
+    public String toString() {
+        return "SysInfo{" +
+                "timeZone='" + timeZone + '\'' +
+                ", currDir='" + currDir + '\'' +
+                ", autosaveDir='" + autosaveDir + '\'' +
+                ", autosaveInterval=" + autosaveInterval +
+                ", autosave=" + autosave +
+                '}';
+    }
+}
+
 public class ApplicationContextTest {
     public static void main(String[] args) {
         ApplicationContext ac = new GenericXmlApplicationContext("config.xml");
@@ -49,5 +75,12 @@ public class ApplicationContextTest {
         Car car2 = (Car) ac.getBean(Car.class);   // 타입으로 빈 검색
         System.out.println("car = " + car);
         System.out.println("car2 = " + car2);
+
+        System.out.println("ac.getBean(SysInfo.class) = " + ac.getBean(SysInfo.class));
+        Map<String, String> map = System.getenv();
+        System.out.println("map = " + map);
+
+        Properties p = new Properties();
+        System.out.println("Properties = " + p);
     }
 }
