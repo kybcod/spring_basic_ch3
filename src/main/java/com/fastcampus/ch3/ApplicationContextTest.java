@@ -52,7 +52,7 @@ class SysInfo{
     String autosaveDir;
     @Value("${autosaveInterval}")
     int autosaveInterval;
-    @Value("${autosaveDir}")
+    @Value("${autosave}")
     boolean autosave;
 
     @Override
