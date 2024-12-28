@@ -77,7 +77,7 @@ public class ApplicationContextTest {
         System.out.println("car2 = " + car2);
 
         System.out.println("ac.getBean(SysInfo.class) = " + ac.getBean(SysInfo.class));
-        Map<String, String> map = System.getenv();
+        Map<String, String> map = System.getenv(); //현재 운영 체제 환경 변수(environment variables)를 가져오는 메서드
         System.out.println("map = " + map);
 
         Properties p = new Properties();
