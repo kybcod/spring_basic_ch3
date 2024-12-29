@@ -41,6 +41,7 @@ class Car {
     }
 }
 
+//#는 SpEL(Expression, 속성 값을 가져오는 것)을 평가, $는 application.yml 등 외부 설정 값을 참조.
 @Component
 @PropertySource("../../../../resources/setting.properties")
 class SysInfo{
