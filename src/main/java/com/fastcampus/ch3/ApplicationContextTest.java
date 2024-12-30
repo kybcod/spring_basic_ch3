@@ -81,7 +81,7 @@ public class ApplicationContextTest {
         Map<String, String> map = System.getenv(); //현재 운영 체제 환경 변수(environment variables)를 가져오는 메서드
         System.out.println("map = " + map);
 
-        Properties p = new Properties();
+        Properties p = new Properties(); //속성 키-값 쌍을 관리하기 위해 Properties 객체를 생성
         System.out.println("Properties = " + p);
     }
 }
