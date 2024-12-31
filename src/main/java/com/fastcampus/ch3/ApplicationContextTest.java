@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @Component
-@Scope("prototype")
+@Scope("prototype") //Spring Bean이 요청될 때마다 새로운 인스턴스를 생성
 class Door {}
 @Component class Engine {}
 @Component class TurboEngine extends Engine {}
