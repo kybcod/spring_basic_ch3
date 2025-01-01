@@ -19,6 +19,7 @@ class Door {}
 
 @Component
 class Car {
+    // Value : 필드에 기본값을 설정하거나 외부 설정값을 주입
     @Value("red") String color;
     @Value("100") int oil;
 
