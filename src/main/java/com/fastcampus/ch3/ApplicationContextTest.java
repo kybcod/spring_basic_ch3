@@ -23,6 +23,7 @@ class Car {
     @Value("red") String color;
     @Value("100") int oil;
 
+    // @Resource(name) vs @Autowired(type)
     //@Autowired
     Engine engine;
     //@Autowired
