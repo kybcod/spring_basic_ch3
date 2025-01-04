@@ -15,6 +15,7 @@ public class Main1 {
         System.out.println("car = " + car);
     }
 
+    // 주어진 키(key)에 해당하는 클래스 이름을 config.txt에서 읽어와 해당 클래스를 동적으로 생성하여 반환하는 함수
     static Object getObject(String key) throws Exception {
         Properties prop = new Properties();
         prop.load(new FileReader("cofig.txt"));
