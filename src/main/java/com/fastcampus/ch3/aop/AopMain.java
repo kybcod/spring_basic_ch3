@@ -13,6 +13,7 @@ public class AopMain {
         Class myClass = Class.forName("com.fastcampus.ch3.aop.MyClass");
         Object obj = myClass.newInstance();
 
+        //myClass에 정의된 멤서드를 배열로 얻어와 invoke 메서드에 정보를 넘겨줌
         for(Method m : myClass.getDeclaredMethods()) {
             myAdvice.invoke(m, obj, null);
         }
@@ -28,13 +29,25 @@ class MyAdvice {
     }
 
     void invoke(Method m, Object obj, Object... args) throws Exception {
-        if(m.getAnnotation(Transactional.class)!=null)
+        if(m.getAnnotation(Transactional.class)!=null) // transaction 어노테이션잉 붙어있는 것만
             System.out.println("[before]{");
 
-        m.invoke(obj, args); // aaa(), aaa2(), bbb() 호출가능
+        m.invoke(obj, args); // aaa() 호출가능
 
         if(m.getAnnotation(Transactional.class)!=null)
             System.out.println("}[after]");
+
+        // 패턴에 맞는 것만 적용
+        /*if(matches(m)){
+            System.out.println("[before]{");
+        }
+
+        m.invoke(obj, args); // aaa(), aaa2() 호출
+
+        if(matches(m)){
+            System.out.println("}[after]");
+        }*/
+
     }
 }
 
