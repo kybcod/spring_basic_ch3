@@ -20,5 +20,6 @@ public class LoggingAdvice {
         System.out.println("result = " + result);
         System.out.println("<<{end}" + (System.currentTimeMillis() - start)+"ms");
 
+        return result;
     }
 }
