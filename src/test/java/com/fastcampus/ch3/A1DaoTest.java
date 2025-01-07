@@ -1,6 +1,7 @@
 package com.fastcampus.ch3;
 
 import junit.framework.TestCase;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,13 @@ public class A1DaoTest {
     @Autowired
     DataSource ds;
 
+    @Autowired
+    DataSourceTransactionManager transactionManager;
+
     @Test
     public void insertTest() throws Exception {
         // TxManager를 생성
-        PlatformTransactionManager transactionManager = new DataSourceTransactionManager(ds);
+        // PlatformTransactionManager transactionManager = new DataSourceTransactionManager(ds); // DataSourceTransactionManager 빈등록
         TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
 
         try {

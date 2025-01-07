@@ -22,7 +22,7 @@ public class A1Dao {
         try {
             //connection = dataSource.getConnection();
             connection = DataSourceUtils.getConnection(dataSource);
-            System.out.println("connection = " + connection); // TransactionManger 덕분에 같은 connection을 사용해서 하나가 insert 오류가 생기더라도 다른 것은 오류가 생기지 않고 진행됨
+            System.out.println("connection = " + connection);
             preparedStatement = connection.prepareStatement("insert into A1(key, value) values(?, ?)");
             preparedStatement.setInt(1, key);
             preparedStatement.setInt(2, value);
