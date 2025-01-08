@@ -1,6 +1,7 @@
 package com.fastcampus.ch3.Member;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -9,7 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+@Repository
 public class UserDaoImpl extends UserDao {
+
     @Autowired
     DataSource ds;
     final int FAIL = 0;
