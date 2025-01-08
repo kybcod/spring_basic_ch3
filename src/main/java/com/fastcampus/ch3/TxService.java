@@ -67,6 +67,7 @@ public class TxService {
         a1Dao.insert(1, 100);
 //        throw new RuntimeException();
 //        throw new Exception();
+        // Exception은 컴파일러가 예외 처리를 강제하지만, RuntimeException은 예외 처리가 강제되지 않는다.
         a1Dao.insert(1, 200);
     }
 
